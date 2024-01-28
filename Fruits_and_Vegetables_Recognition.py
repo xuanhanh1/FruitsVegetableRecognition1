@@ -9,8 +9,8 @@ file = Path(__file__).parent.resolve()
 print('file', file)
 
 def model_prediction(test_image):
-    # model = tf.keras.models.load_model("trained_model.h5")
-    model = tf.keras.models.load_model('E:/DL/Fruits_and_Vagetables_image_recognition/trained_model.h5')
+    model = tf.keras.models.load_model("trained_model.h5")
+    # model = tf.keras.models.load_model('E:/DL/Fruits_and_Vagetables_image_recognition/trained_model.h5')
     image = tf.keras.preprocessing.image.load_img(test_image, target_size=(64,64))
     input_arr = tf.keras.preprocessing.image.img_to_array(image)
     input_arr = np.array([input_arr])
@@ -182,7 +182,8 @@ elif(app_mode == "Prediction"):
         st.write("Out Prediction")
         if (test_image) :
           result_index = model_prediction(test_image)     
-          with open("E:/DL/Fruits_and_Vagetables_image_recognition/labels.txt") as f:
+          # with open("E:/DL/Fruits_and_Vagetables_image_recognition/labels.txt") as f:
+          with open("labels.txt") as f:
                 content = f.readlines()
           label = []
           for i in content:
